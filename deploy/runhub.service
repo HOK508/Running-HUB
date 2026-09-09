@@ -1,0 +1,27 @@
+# RUNing HUB 后端 systemd 服务（服务器开机自启 + 崩溃自动重启）
+# 用法：复制到 /etc/systemd/system/runhub.service，然后：
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now runhub
+# 查看状态：sudo systemctl status runhub
+# 查看日志：journalctl -u runhub -f
+
+[Unit]
+Description=RUNing HUB backend (FastAPI)
+After=network.target mysql.service
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/runhub/backend
+# 生产环境变量示例（正式部署时填入真实值）
+Environment=RUNHUB_DB_HOST=127.0.0.1
+Environment=RUNHUB_DB_PORT=3306
+Environment=RUNHUB_DB_USER=runhub
+Environment=RUNHUB_DB_PASSWORD=改成生产密码
+Environment=RUNHUB_DB_NAME=runhub
+Environment=RUNHUB_SECRET_KEY=改成随机长字符串
+ExecStart=/var/www/runhub/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
