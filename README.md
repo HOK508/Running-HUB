@@ -80,19 +80,19 @@ Running HUB 基于校园跑团实际活动组织场景设计，针对传统活�
 
 统一登录入口，根据用户身份进入对应功能界面。
 
-![登录界面](./images/login.png)
+![登录界面](./images/login.jpg)
 
 ### 2. 普通用户界面
 
 普通用户可以浏览活动、查看活动详情、提交报名、查看报名状态、进行签到以及参与活动回顾互动。
 
-![普通用户界面](./images/user.png)
+![普通用户界面](./images/user.jpg)
 
 ### 3. 管理员界面
 
 管理员可以发布和编辑活动、审核报名信息、管理签到情况以及发布活动回顾。
 
-![管理员界面](./images/admin.png)
+![管理员界面](./images/admin.jpg)
 
 ## 产品迭代与实际应用
 
@@ -100,7 +100,7 @@ Running HUB 在真实校园跑团活动中进行验证，并根据实际使用�
 
 * **实际应用：** 5 场跑团活动
 * **参与用户：** 49 人
-* **用户反馈：** 32 条
+* **用户反馈：** 8 条
 * **产品迭代：** 4 次
 * **重点优化：** 报名信息统计、审核状态展示、签到流程
 * **效率提升：** 管理员单场活动报名信息整理耗时由平均 **10 分钟降至 1 分钟**，效率提升约 **90%**
@@ -136,6 +136,9 @@ Running HUB 在真实校园跑团活动中进行验证，并根据实际使用�
 Running-HUB/
 ├── backend/
 │   └── app/
+│   ├── scripts/
+│   ├── tests/
+│   └── sql/
 ├── frontend/
 │   └── src/
 │       ├── api/
@@ -144,12 +147,9 @@ Running-HUB/
 │       ├── router/
 │       └── views/
 ├── images/
-│   ├── login.png
-│   ├── user.png
-│   └── admin.png
-├── scripts/
-├── sql/
-│   └── init.sql
+│   ├── login.jpg
+│   ├── user.jpg
+│   └── admin.jpg
 ├── deploy/
 │   ├── nginx.conf
 │   └── runhub.service
